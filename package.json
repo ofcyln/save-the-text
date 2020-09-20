@@ -7,7 +7,7 @@
     "start:open": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
-    "lint": "eslint \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\" --fix",
     "e2e": "ng e2e",
     "build:prod": "ng build --prod --aot --build-optimizer",
     "deploy:firebase": "firebase deploy",
