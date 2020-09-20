@@ -16,5 +16,14 @@
       "es2018",
       "dom"
     ]
+  },
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts",
+    "dist"
+  ],
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }
