@@ -3,6 +3,7 @@
   "short_name": "Save the Text",
   "theme_color": "#ede35f",
   "background_color": "#ede35f",
+  "display": "standalone",
   "orientation": "portrait",
   "scope": "./",
   "start_url": "./?utm_source=standalone&utm_medium=pwa",
