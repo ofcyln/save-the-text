@@ -2,7 +2,7 @@
 > Save your texts as quickly as possible. On desktop PCs, tables or mobile phones, whenever and wherever you need!
 >[savethetext.app](https://savethetext.app)
 
-<img width="90%" title="Save the Text placeholder" alt="Save the Text" src="https://savethetext.app/assets/img/save-the-text-placeholder.png"/>
+<img width="90%" title="Save the Text placeholder" alt="Save the Text" src="https://savethetext.app/assets/img/social-media-banners/save-the-text-klein.jpg"/>
 <br>
 
 ## Motivation 
