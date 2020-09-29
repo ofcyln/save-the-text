@@ -1,0 +1,11 @@
+<main fxFill
+      fxLayout="column"
+      fxLayoutAlign="start center"
+      [ngStyle]="{'overflow': 'hidden', 'height': '100%'}">
+  <section fxFill
+           data-router-container
+           class="w-100 position-relative"
+           [ngStyle]="{'overflow-y': 'auto'}">
+    <router-outlet></router-outlet>
+  </section>
+</main>
