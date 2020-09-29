@@ -1,0 +1,12 @@
+[data-text-area] {
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	border: 0;
+	padding: 1rem;
+	font-size: 1.2rem;
+	resize: none;
+	box-sizing: border-box;
+	background-color: transparent;
+	outline: none;
+}

@@ -5,10 +5,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
+import { TextAreaComponent } from './components/text-area/text-area.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TextAreaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
