@@ -1,20 +1,27 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { Select } from '@ngxs/store';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
 import { SavedText, SaveTheTextState } from '../../store/state/save-the-text.state';
 import { Observable } from 'rxjs';
+import { SaveText, SetTextAreaValue } from '../../store/action/save-the-text.actions';
 
 @Component({
   selector: 'app-text-area',
   templateUrl: './text-area.component.html',
   styleUrls: ['./text-area.component.scss'],
 })
-export class TextAreaComponent implements OnInit, AfterViewInit {
-  lastSavedText: string;
-  @ViewChild('saveTheText') saveTheText: any;
+export class TextAreaComponent implements OnInit {
+  lastSavedText = '';
+
+  @ViewChild('saveTheText', { static: false })
+  set saveTheText(element: ElementRef<HTMLInputElement>) {
+    if (element) {
+      element.nativeElement.focus();
+    }
+  }
 
   @Select(SaveTheTextState.getLastSavedText) lastSavedText$: Observable<SavedText>;
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.lastSavedText$.subscribe((result) => {
@@ -22,7 +29,7 @@ export class TextAreaComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-    this.saveTheText.nativeElement.focus();
+  getTextValue(event: any): void {
+    this.store.dispatch(new SetTextAreaValue(event.target.value));
   }
 }

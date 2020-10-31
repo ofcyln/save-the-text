@@ -1,5 +1,6 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { GetLastSavedText, RemoveText, SaveText } from '../action/save-the-text.actions';
+import { GetLastSavedText, RemoveText, SaveText, SetTextAreaValue } from '../action/save-the-text.actions';
+import { Injectable } from '@angular/core';
 
 export interface SavedText {
   savedText: string;
@@ -10,6 +11,7 @@ export interface SaveTheTextStateModel {
   highlightedText: string;
   lastSavedText: SavedText;
   savedTexts: SavedText[];
+  textAreaValue: string;
 }
 
 @State<SaveTheTextStateModel>({
@@ -21,12 +23,19 @@ export interface SaveTheTextStateModel {
       uuid: null,
     },
     savedTexts: [],
+    textAreaValue: '',
   },
 })
+@Injectable()
 export class SaveTheTextState {
   @Selector()
   static getLastSavedText(state: SaveTheTextStateModel): SavedText {
     return state.lastSavedText;
+  }
+
+  @Selector()
+  static getTextAreaValue(state: SaveTheTextStateModel): string {
+    return state.textAreaValue;
   }
 
   @Action(SaveText)
@@ -42,6 +51,13 @@ export class SaveTheTextState {
     const savedTexts = getState().savedTexts;
 
     savedTexts.push(lastSavedText);
+  }
+
+  @Action(SetTextAreaValue)
+  setTextAreaValue({ getState, patchState }: StateContext<SaveTheTextStateModel>, { textAreaValue }: SetTextAreaValue): void {
+    patchState({
+      textAreaValue,
+    });
   }
 
   @Action(RemoveText)

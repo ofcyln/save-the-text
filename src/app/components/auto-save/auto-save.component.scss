@@ -1,0 +1,39 @@
+:host {
+	transition: ease-in-out opacity 0.3s;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	min-width: 300px;
+	opacity: 0.4;
+
+	.save-button {
+		background-color: transparent;
+		border: 0;
+		cursor: pointer;
+
+		.icon-floppy-disk {
+			background-image: url('/assets/img/svg/floppy-disk.svg');
+			background-size: cover;
+		}
+
+		i {
+			transition: ease-in-out opacity 0.3s;
+			margin-left: 0.5rem;
+			opacity: 0;
+		}
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+	&:hover {
+		opacity: 1;
+
+		button {
+			i {
+				opacity: 1;
+			}
+		}
+	}
+}

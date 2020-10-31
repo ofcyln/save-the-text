@@ -2,5 +2,5 @@
           name="saveTheText"
           id="saveTheText"
           data-text-area
-          [value]="lastSavedText || ''"
-          autofocus></textarea>
+          [value]="lastSavedText"
+          (keydown)="getTextValue($event)"></textarea>

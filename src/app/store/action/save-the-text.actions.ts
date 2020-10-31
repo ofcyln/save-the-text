@@ -15,3 +15,9 @@ export class GetLastSavedText {
 
   constructor() {}
 }
+
+export class SetTextAreaValue {
+  static readonly type = '[SaveTheText] Set Text Area Value';
+
+  constructor(public textAreaValue: string) {}
+}

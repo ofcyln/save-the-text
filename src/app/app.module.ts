@@ -14,9 +14,10 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { SaveTheTextState } from './store/state/save-the-text.state';
+import { AutoSaveComponent } from './components/auto-save/auto-save.component';
 
 @NgModule({
-  declarations: [AppComponent, TextAreaComponent],
+  declarations: [AppComponent, TextAreaComponent, AutoSaveComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
