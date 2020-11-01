@@ -25,7 +25,12 @@ import { AutoSaveComponent } from './components/auto-save/auto-save.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgxsModule.forRoot([SaveTheTextState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot({
+      // Do not collapse log groups
+      collapsed: false,
+      // Do not log in production mode
+      disabled: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
