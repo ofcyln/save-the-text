@@ -1,0 +1,21 @@
+:host {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	box-sizing: border-box;
+	border-left: 1px solid #ececec;
+	height: 100%;
+}
+
+.share {
+	display: flex;
+	background-image: url('/assets/img/svg/share.svg');
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: center;
+	height: 33px;
+	width: 70px;
+	border: 0;
+	background-color: transparent;
+	cursor: pointer;
+}

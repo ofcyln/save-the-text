@@ -4,10 +4,11 @@
       [ngStyle]="{'overflow': 'hidden', 'height': '100%'}">
   <section fxFill
            data-router-container
-           class="w-100 position-relative"
-           [ngStyle]="{'overflow-y': 'auto'}">
+           class="w-100 position-relative">
     <router-outlet></router-outlet>
 
     <app-auto-save></app-auto-save>
+
+    <app-right-panel *ngIf="showRightPanel"></app-right-panel>
   </section>
 </main>

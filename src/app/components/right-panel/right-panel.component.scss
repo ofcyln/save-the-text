@@ -1,0 +1,11 @@
+:host {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(1, 250px);
+	grid-template-rows: auto 75px;
+	border-left: 1px solid #ececec;
+	box-sizing: border-box;
+}
