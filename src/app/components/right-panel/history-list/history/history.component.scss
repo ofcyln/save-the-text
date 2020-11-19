@@ -1,5 +1,5 @@
 .card {
-	background: #fff;
+	background: #ffec59;
 	border-radius: 2px;
 	display: grid;
 	height: auto;
@@ -10,7 +10,7 @@
 	width: calc(100% - 2rem);
 	transition: 0.3s ease-in-out box-shadow;
 	grid-template-columns: repeat(1, 202px);
-	grid-template-rows: 25px auto 35px;
+	grid-template-rows: 25px auto 30px;
 	cursor: pointer;
 
 	&.shadow {
@@ -36,15 +36,19 @@
 		position: relative;
 		display: inline-block;
 		box-sizing: border-box;
-		border: solid 1px;
-		border-radius: 2px;
-		padding: 0 16px;
-		min-width: 64px;
+		border: 1px solid #222;
+		font-size: 11px;
+		max-width: 115px;
+		margin-left: auto;
 		text-transform: uppercase;
 		background-color: transparent;
 		overflow: hidden;
 		outline: none;
 		cursor: pointer;
+
+		img {
+			height: 20px;
+		}
 
 		&::before {
 			content: '';

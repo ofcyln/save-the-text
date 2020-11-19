@@ -40,7 +40,7 @@ body {
 
 ::selection {
 	color: #333;
-	background: #ede35f;
+	background: #ffec59;
 }
 
 .margin {
@@ -140,4 +140,37 @@ body {
 .icon {
 	width: 3em;
 	height: 3em;
+}
+
+.custom-title {
+	position: relative;
+
+	&:hover {
+		&::after {
+			display: initial;
+		}
+	}
+
+	&::after {
+		display: none;
+		content: attr(aria-label);
+		position: absolute;
+		margin-top: 2px;
+		top: -10%;
+		right: 22%;
+		z-index: 1;
+		padding: 0.2rem 0.7rem;
+		background: #222;
+		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35);
+		color: #fcec59;
+		font-size: 10px;
+		white-space: nowrap;
+		pointer-events: none;
+		transform: translateX(50%);
+	}
+
+	&.top::after {
+		top: -100%;
+		right: 50%;
+	}
 }
