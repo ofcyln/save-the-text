@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
+import { SaveTheTextState } from '../../store/state/save-the-text.state';
+import { Observable } from 'rxjs';
+import { RightPanelOpenerClick } from '../../store/action/save-the-text.actions';
 
 @Component({
   selector: 'app-right-panel-opener',
@@ -6,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./right-panel-opener.component.scss'],
 })
 export class RightPanelOpenerComponent implements OnInit {
-  constructor() {}
+  @Select(SaveTheTextState.getRightPanelValue) rightPanel$: Observable<boolean>;
+
+  constructor(private readonly store: Store) {}
 
   ngOnInit(): void {}
 
-  open(): void {}
+  open(): void {
+    this.store.dispatch(new RightPanelOpenerClick());
+  }
 }

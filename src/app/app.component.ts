@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { SaveTheTextState } from './store/state/save-the-text.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  showRightPanel = true;
+  @Select(SaveTheTextState.getRightPanelValue) rightPanel$: Observable<boolean>;
+  @Select(SaveTheTextState.getDarkModeValue) darkMode$: Observable<boolean>;
 
   constructor() {}
 }

@@ -5,6 +5,7 @@
 	box-sizing: border-box;
 	border-left: 1px solid #ececec;
 	height: 100%;
+	transition: ease-in-out border-left-color 0.3s;
 }
 
 .share {

@@ -5,17 +5,26 @@
 	margin-top: -25px;
 
 	.right-panel-opener {
-		transition: ease-in-out opacity 0.3s;
+		transition: ease-in-out all 0.3s;
 		background-color: transparent;
 		border: 0;
 		cursor: pointer;
 		opacity: 0.4;
+
+		&:focus {
+			outline: 0;
+		}
 
 		.icon-arrow-back {
 			width: 2rem;
 			height: 3rem;
 			background-image: url('/assets/img/svg/arrow-back.svg');
 			background-size: cover;
+			transition: ease-in-out filter 0.3s;
+		}
+
+		&.open {
+			transform: rotateY(180deg);
 		}
 
 		&:hover {

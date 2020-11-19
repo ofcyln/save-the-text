@@ -21,3 +21,15 @@ export class SetTextAreaValue {
 
   constructor(public textAreaValue: string) {}
 }
+
+export class RightPanelOpenerClick {
+  static readonly type = '[SaveTheText] Right Panel Opener Button Clicked';
+
+  constructor() {}
+}
+
+export class DarkModeButtonClick {
+  static readonly type = '[SaveTheText] Dark Mode Button Clicked';
+
+  constructor() {}
+}

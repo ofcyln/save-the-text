@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./right-panel.component.scss'],
 })
 export class RightPanelComponent implements OnInit {
-  activateOpener = true;
-
   constructor() {}
 
   ngOnInit(): void {}

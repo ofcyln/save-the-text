@@ -10,4 +10,8 @@
 			opacity: 1 !important;
 		}
 	}
+
+	.custom-title::after {
+		display: initial !important;
+	}
 }

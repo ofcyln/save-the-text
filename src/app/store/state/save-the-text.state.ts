@@ -1,5 +1,12 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { GetLastSavedText, RemoveText, SaveText, SetTextAreaValue } from '../action/save-the-text.actions';
+import {
+  DarkModeButtonClick,
+  GetLastSavedText,
+  RemoveText,
+  RightPanelOpenerClick,
+  SaveText,
+  SetTextAreaValue,
+} from '../action/save-the-text.actions';
 import { Injectable } from '@angular/core';
 
 export interface SavedText {
@@ -12,6 +19,8 @@ export interface SaveTheTextStateModel {
   lastSavedText: SavedText;
   savedTexts: SavedText[];
   textAreaValue: string;
+  rightPanel: boolean;
+  darkMode: boolean;
 }
 
 @State<SaveTheTextStateModel>({
@@ -24,6 +33,8 @@ export interface SaveTheTextStateModel {
     },
     savedTexts: [],
     textAreaValue: '',
+    rightPanel: false,
+    darkMode: false,
   },
 })
 @Injectable()
@@ -36,6 +47,16 @@ export class SaveTheTextState {
   @Selector()
   static getTextAreaValue(state: SaveTheTextStateModel): string {
     return state.textAreaValue;
+  }
+
+  @Selector()
+  static getRightPanelValue(state: SaveTheTextStateModel): boolean {
+    return state.rightPanel;
+  }
+
+  @Selector()
+  static getDarkModeValue(state: SaveTheTextStateModel): boolean {
+    return state.darkMode;
   }
 
   @Action(SaveText)
@@ -70,5 +91,15 @@ export class SaveTheTextState {
   @Action(GetLastSavedText)
   getLastSavedText({ getState }: StateContext<SaveTheTextStateModel>): SavedText {
     return getState().lastSavedText;
+  }
+
+  @Action(RightPanelOpenerClick)
+  rightPanelOpenerClick({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
+    !getState().rightPanel ? patchState({ rightPanel: true }) : patchState({ rightPanel: false });
+  }
+
+  @Action(DarkModeButtonClick)
+  darkModeButtonClick({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
+    !getState().darkMode ? patchState({ darkMode: true }) : patchState({ darkMode: false });
   }
 }
