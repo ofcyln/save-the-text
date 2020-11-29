@@ -7,7 +7,7 @@ export class SaveText {
 export class RemoveText {
   static readonly type = '[SaveTheText] Remove text';
 
-  constructor(public uuid: number) {}
+  constructor(public selectedText: string) {}
 }
 
 export class GetLastSavedText {

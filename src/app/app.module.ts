@@ -21,6 +21,7 @@ import { ShareComponent } from './components/right-panel/share/share.component';
 import { DarkModeConfiguratorComponent } from './components/right-panel/dark-mode-configurator/dark-mode-configurator.component';
 import { RightPanelOpenerComponent } from './components/right-panel-opener/right-panel-opener.component';
 import { HistoryComponent } from './components/right-panel/history-list/history/history.component';
+import { StorageService } from './shared/service/storage.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { HistoryComponent } from './components/right-panel/history-list/history/
       disabled: environment.production,
     }),
   ],
-  providers: [],
+  providers: [StorageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

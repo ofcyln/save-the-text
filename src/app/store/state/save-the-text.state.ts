@@ -8,14 +8,21 @@ import {
   SetTextAreaValue,
 } from '../action/save-the-text.actions';
 import { Injectable } from '@angular/core';
+import { LastSavedText } from '../../shared/interface/last-saved-text.interface';
+import { StorageService } from '../../shared/service/storage.service';
+
+const filterDuplicates = (arr: SavedText[]): SavedText[] => {
+  arr = [...new Set(arr)];
+  return arr;
+};
 
 export interface SavedText {
   savedText: string;
-  uuid: number;
 }
 
 export interface SaveTheTextStateModel {
   highlightedText: string;
+  sessionId: number;
   lastSavedText: SavedText;
   savedTexts: SavedText[];
   textAreaValue: string;
@@ -27,12 +34,12 @@ export interface SaveTheTextStateModel {
   name: 'SaveTheText',
   defaults: {
     highlightedText: '',
+    sessionId: null,
     lastSavedText: {
-      savedText: '',
-      uuid: null,
+      savedText: StorageService.getItem('lastSavedText'),
     },
-    savedTexts: [],
-    textAreaValue: '',
+    savedTexts: filterDuplicates(StorageService.getData('savedTexts')) || [],
+    textAreaValue: StorageService.getItem('lastSavedText'),
     rightPanel: false,
     darkMode: false,
   },
@@ -42,6 +49,11 @@ export class SaveTheTextState {
   @Selector()
   static getLastSavedText(state: SaveTheTextStateModel): SavedText {
     return state.lastSavedText;
+  }
+
+  @Selector()
+  static getSavedTexts(state: SaveTheTextStateModel): SavedText[] {
+    return state.savedTexts;
   }
 
   @Selector()
@@ -61,30 +73,30 @@ export class SaveTheTextState {
 
   @Action(SaveText)
   saveText({ getState, patchState }: StateContext<SaveTheTextStateModel>, { textToSave }: SaveText): void {
+    if (!getState().sessionId) {
+      patchState({ sessionId: Date.now() });
+    }
+
     patchState({
       lastSavedText: {
         savedText: textToSave,
-        uuid: Date.now(),
       },
-    });
+    } as LastSavedText);
 
-    const lastSavedText = getState().lastSavedText;
-    const savedTexts = getState().savedTexts;
-
-    savedTexts.push(lastSavedText);
+    this.addUniqueNewText(getState().lastSavedText, getState().savedTexts, textToSave);
   }
 
   @Action(SetTextAreaValue)
-  setTextAreaValue({ getState, patchState }: StateContext<SaveTheTextStateModel>, { textAreaValue }: SetTextAreaValue): void {
+  setTextAreaValue({ patchState }: StateContext<SaveTheTextStateModel>, { textAreaValue }: SetTextAreaValue): void {
     patchState({
       textAreaValue,
     });
   }
 
   @Action(RemoveText)
-  removeText({ getState, patchState }: StateContext<SaveTheTextStateModel>, { uuid }: RemoveText): void {
+  removeText({ getState, patchState }: StateContext<SaveTheTextStateModel>, { selectedText }: RemoveText): void {
     patchState({
-      savedTexts: getState().savedTexts.filter((text: SavedText) => text.uuid !== uuid),
+      savedTexts: getState().savedTexts.filter((text: SavedText) => text.savedText !== selectedText),
     });
   }
 
@@ -101,5 +113,30 @@ export class SaveTheTextState {
   @Action(DarkModeButtonClick)
   darkModeButtonClick({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
     !getState().darkMode ? patchState({ darkMode: true }) : patchState({ darkMode: false });
+  }
+
+  addUniqueNewText(lastSavedTextState: SavedText, savedTextsState: SavedText[], textToSave: string): void {
+    const lastSavedText = lastSavedTextState;
+    const savedTexts = filterDuplicates(savedTextsState);
+
+    if (savedTexts.length === 0 && !!lastSavedText.savedText) {
+      savedTexts.push(lastSavedText);
+      filterDuplicates(savedTexts);
+      this.setStringifyData(savedTexts);
+    } else {
+      for (const text of savedTexts) {
+        if (savedTexts[savedTexts.length - 1].savedText !== textToSave && text.savedText !== textToSave) {
+          savedTexts.push(lastSavedText);
+          filterDuplicates(savedTexts);
+          this.setStringifyData(savedTexts);
+        }
+      }
+    }
+  }
+
+  setStringifyData(savedTexts: SavedText[]): void {
+    const stringifyData = JSON.stringify(savedTexts);
+
+    StorageService.setItem('savedTexts', stringifyData);
   }
 }
