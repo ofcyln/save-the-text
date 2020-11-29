@@ -26,6 +26,9 @@
     "src/**/*.{ts,scss}": [
       "prettier --write"
     ],
+    "src/**/*.ts": [
+      "eslint --cache --fix"
+    ],
     "src/**/*.scss": [
       "stylelint --fix"
     ]
