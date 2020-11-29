@@ -15,9 +15,27 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { SaveTheTextState } from './store/state/save-the-text.state';
 import { AutoSaveComponent } from './components/auto-save/auto-save.component';
+import { RightPanelComponent } from './components/right-panel/right-panel.component';
+import { HistoryListComponent } from './components/right-panel/history-list/history-list.component';
+import { ShareComponent } from './components/right-panel/share/share.component';
+import { DarkModeConfiguratorComponent } from './components/right-panel/dark-mode-configurator/dark-mode-configurator.component';
+import { RightPanelOpenerComponent } from './components/right-panel-opener/right-panel-opener.component';
+import { HistoryComponent } from './components/right-panel/history-list/history/history.component';
+import { StorageService } from './shared/service/storage.service';
 
 @NgModule({
-  declarations: [AppComponent, TextAreaComponent, AutoSaveComponent],
+  declarations: [
+    AppComponent,
+    TextAreaComponent,
+    AutoSaveComponent,
+    RightPanelOpenerComponent,
+    RightPanelComponent,
+    HistoryListComponent,
+    ShareComponent,
+    DarkModeConfiguratorComponent,
+    RightPanelOpenerComponent,
+    HistoryComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,7 +50,7 @@ import { AutoSaveComponent } from './components/auto-save/auto-save.component';
       disabled: environment.production,
     }),
   ],
-  providers: [],
+  providers: [StorageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,7 +1,17 @@
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
 	body {
 		&::before {
 			background-size: 90% !important;
 		}
+	}
+
+	.save-button {
+		i {
+			opacity: 1 !important;
+		}
+	}
+
+	.custom-title::after {
+		display: initial !important;
 	}
 }
