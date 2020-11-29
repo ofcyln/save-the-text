@@ -5,7 +5,7 @@
          fxLayoutAlign="center center">
   <app-dark-mode-configurator fxFlex></app-dark-mode-configurator>
 
-  <app-share fxFlex></app-share>
+  <app-share fxFlex *ngIf="share"></app-share>
 </section>
 
 <app-right-panel-opener></app-right-panel-opener>

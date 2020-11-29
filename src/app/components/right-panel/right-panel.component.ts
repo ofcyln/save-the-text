@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./right-panel.component.scss'],
 })
 export class RightPanelComponent implements OnInit {
+  share: false;
+
   constructor() {}
 
   ngOnInit(): void {}
