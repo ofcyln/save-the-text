@@ -1,13 +1,15 @@
 <main fxFill
       fxLayout="column"
       fxLayoutAlign="start center"
-      [ngStyle]="{'overflow': 'hidden', 'height': '100%'}">
+      [ngStyle]="{'overflow': 'hidden', 'height': '100%'}"
+      [ngClass]="(darkMode$ | async) ? 'dark-mode-on' : 'dark-mode-off'">
   <section fxFill
            data-router-container
-           class="w-100 position-relative"
-           [ngStyle]="{'overflow-y': 'auto'}">
+           class="w-100 position-relative">
     <router-outlet></router-outlet>
 
     <app-auto-save></app-auto-save>
+
+    <app-right-panel [ngClass]="(rightPanel$ | async) ? 'active' : ''"></app-right-panel>
   </section>
 </main>

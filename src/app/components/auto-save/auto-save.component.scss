@@ -10,6 +10,7 @@
 		background-color: transparent;
 		border: 0;
 		cursor: pointer;
+		transition: ease-in-out filter 0.3s;
 
 		.icon-floppy-disk {
 			background-image: url('/assets/img/svg/floppy-disk.svg');

@@ -7,7 +7,7 @@ export class SaveText {
 export class RemoveText {
   static readonly type = '[SaveTheText] Remove text';
 
-  constructor(public uuid: number) {}
+  constructor(public selectedText: string) {}
 }
 
 export class GetLastSavedText {
@@ -20,4 +20,16 @@ export class SetTextAreaValue {
   static readonly type = '[SaveTheText] Set Text Area Value';
 
   constructor(public textAreaValue: string) {}
+}
+
+export class RightPanelOpenerClick {
+  static readonly type = '[SaveTheText] Right Panel Opener Button Clicked';
+
+  constructor() {}
+}
+
+export class DarkModeButtonClick {
+  static readonly type = '[SaveTheText] Dark Mode Button Clicked';
+
+  constructor() {}
 }
