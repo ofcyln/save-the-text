@@ -29,7 +29,7 @@ export class TextAreaComponent implements OnInit {
     });
   }
 
-  getTextValue(event: unknown): void {
-    this.store.dispatch(new SetTextAreaValue(event.target.value as string));
+  getTextValue(event: { target: HTMLInputElement }): void {
+    this.store.dispatch(new SetTextAreaValue(event.target.value));
   }
 }
