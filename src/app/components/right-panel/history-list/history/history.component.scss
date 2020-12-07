@@ -11,7 +11,6 @@
 	transition: 0.3s ease-in-out box-shadow;
 	grid-template-columns: repeat(1, 202px);
 	grid-template-rows: 25px auto 30px;
-	cursor: pointer;
 
 	&.shadow {
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.19), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -23,6 +22,7 @@
 
 	.heading {
 		margin: 0;
+		cursor: pointer;
 	}
 
 	.content {
@@ -30,6 +30,7 @@
 		word-break: break-all;
 		max-height: 148px;
 		overflow: auto;
+		cursor: pointer;
 	}
 
 	.button-outlined {

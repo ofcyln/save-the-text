@@ -41,7 +41,7 @@ export interface SaveTheTextStateModel {
     savedTexts: filterDuplicates(StorageService.getData('savedTexts')) || [],
     textAreaValue: StorageService.getItem('lastSavedText'),
     rightPanel: false,
-    darkMode: false,
+    darkMode: StorageService.getItem('darkMode') === 'true' || false,
   },
 })
 @Injectable()
@@ -112,7 +112,14 @@ export class SaveTheTextState {
 
   @Action(DarkModeButtonClick)
   darkModeButtonClick({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
-    !getState().darkMode ? patchState({ darkMode: true }) : patchState({ darkMode: false });
+    if (!getState().darkMode) {
+      patchState({ darkMode: true });
+      StorageService.setItem('darkMode', getState().darkMode.toString());
+    } else {
+      patchState({ darkMode: false });
+
+      StorageService.setItem('darkMode', getState().darkMode.toString());
+    }
   }
 
   addUniqueNewText(lastSavedTextState: SavedText, savedTextsState: SavedText[], textToSave: string): void {

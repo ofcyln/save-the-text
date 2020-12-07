@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { SaveText } from '../../../../store/action/save-the-text.actions';
+import { RemoveText, SaveText } from '../../../../store/action/save-the-text.actions';
 
 @Component({
   selector: 'app-history',
@@ -14,5 +14,11 @@ export class HistoryComponent {
 
   setSelectedText(selectedTextContent: string): void {
     this.store.dispatch(new SaveText(selectedTextContent));
+  }
+
+  removeText(text: string) {
+    setTimeout(() => {
+      this.store.dispatch(new RemoveText(text));
+    }, 2e2);
   }
 }
