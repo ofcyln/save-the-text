@@ -95,9 +95,13 @@ export class SaveTheTextState {
 
   @Action(RemoveText)
   removeText({ getState, patchState }: StateContext<SaveTheTextStateModel>, { selectedText }: RemoveText): void {
+    const filteredSavedTexts = getState().savedTexts.filter((text: SavedText) => text.savedText !== selectedText);
+
     patchState({
-      savedTexts: getState().savedTexts.filter((text: SavedText) => text.savedText !== selectedText),
+      savedTexts: filteredSavedTexts,
     });
+
+    this.setStringifyData(filteredSavedTexts);
   }
 
   @Action(GetLastSavedText)
