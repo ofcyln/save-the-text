@@ -3,4 +3,5 @@
           id="saveTheText"
           data-text-area
           [value]="lastSavedText"
-          (input)="getTextValue($event)"></textarea>
+          (input)="getTextValue($event)"
+          (keydown)="getSaveKeyCombination($event)" ></textarea>

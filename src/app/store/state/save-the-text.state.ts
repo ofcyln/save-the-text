@@ -41,7 +41,7 @@ export interface SaveTheTextStateModel {
     savedTexts: filterDuplicates(StorageService.getData('savedTexts')) || [],
     textAreaValue: StorageService.getItem('lastSavedText'),
     rightPanel: false,
-    darkMode: false,
+    darkMode: StorageService.getItem('darkMode') === 'true' || false,
   },
 })
 @Injectable()
@@ -83,7 +83,24 @@ export class SaveTheTextState {
       },
     } as LastSavedText);
 
-    this.addUniqueNewText(getState().lastSavedText, getState().savedTexts, textToSave);
+    const lastSavedText = getState().lastSavedText;
+    const savedTexts = filterDuplicates(getState().savedTexts);
+
+    if (savedTexts.length === 0 && lastSavedText.savedText) {
+      savedTexts.push(lastSavedText);
+      filterDuplicates(savedTexts);
+      this.setStringifyData(savedTexts);
+      patchState({ savedTexts });
+    } else {
+      for (const text of savedTexts) {
+        if (savedTexts[savedTexts.length - 1].savedText !== textToSave && text.savedText !== textToSave) {
+          savedTexts.push(lastSavedText);
+          filterDuplicates(savedTexts);
+          this.setStringifyData(savedTexts);
+          patchState({ savedTexts });
+        }
+      }
+    }
   }
 
   @Action(SetTextAreaValue)
@@ -95,9 +112,13 @@ export class SaveTheTextState {
 
   @Action(RemoveText)
   removeText({ getState, patchState }: StateContext<SaveTheTextStateModel>, { selectedText }: RemoveText): void {
+    const filteredSavedTexts = getState().savedTexts.filter((text: SavedText) => text.savedText !== selectedText);
+
     patchState({
-      savedTexts: getState().savedTexts.filter((text: SavedText) => text.savedText !== selectedText),
+      savedTexts: filteredSavedTexts,
     });
+
+    this.setStringifyData(filteredSavedTexts);
   }
 
   @Action(GetLastSavedText)
@@ -112,25 +133,13 @@ export class SaveTheTextState {
 
   @Action(DarkModeButtonClick)
   darkModeButtonClick({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
-    !getState().darkMode ? patchState({ darkMode: true }) : patchState({ darkMode: false });
-  }
-
-  addUniqueNewText(lastSavedTextState: SavedText, savedTextsState: SavedText[], textToSave: string): void {
-    const lastSavedText = lastSavedTextState;
-    const savedTexts = filterDuplicates(savedTextsState);
-
-    if (savedTexts.length === 0 && !!lastSavedText.savedText) {
-      savedTexts.push(lastSavedText);
-      filterDuplicates(savedTexts);
-      this.setStringifyData(savedTexts);
+    if (!getState().darkMode) {
+      patchState({ darkMode: true });
+      StorageService.setItem('darkMode', getState().darkMode.toString());
     } else {
-      for (const text of savedTexts) {
-        if (savedTexts[savedTexts.length - 1].savedText !== textToSave && text.savedText !== textToSave) {
-          savedTexts.push(lastSavedText);
-          filterDuplicates(savedTexts);
-          this.setStringifyData(savedTexts);
-        }
-      }
+      patchState({ darkMode: false });
+
+      StorageService.setItem('darkMode', getState().darkMode.toString());
     }
   }
 

@@ -1,14 +1,17 @@
 <article class="card shadow custom-title"
-         aria-label="Load this note"
-         (click)="setSelectedText(textContent)">
-  <h3 class="heading">{{textContent.length > 10 ? textContent.substring(0, 10) + '...' : textContent}}</h3>
+         aria-label="Load this note">
+  <h3 class="heading"
+      (click)="setSelectedText(textContent)">{{textContent.length > 20 ? textContent.substring(0, 20) + '...' : textContent}}</h3>
 
-  <p class="content" [innerHTML]="textContent"></p>
+  <p class="content"
+     (click)="setSelectedText(textContent)"
+     [innerHTML]="textContent"></p>
 
   <button class="button-outlined"
           fxLayout="row"
           fxLayoutAlign="center center"
-          fxLayoutGap="0.5rem">
+          fxLayoutGap="0.5rem"
+          (click)="removeText(textContent)">
     <img class="remove"
          alt="remove"
          src="assets/img/svg/delete.svg"/>
