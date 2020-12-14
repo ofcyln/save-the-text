@@ -4,174 +4,174 @@
 @import 'assets/scss/dark-mode.scss';
 
 body {
-  height: 100%;
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+	height: 100%;
+	margin: 0;
+	font-family: Roboto, 'Helvetica Neue', sans-serif;
 
-  &::before {
-    content: '';
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    position: fixed;
-    background-image: url('assets/img/logo/square-opaque.svg');
-    background-repeat: no-repeat;
-    background-color: #fbfbfb;
-    background-size: 40%;
-    background-position: center;
-    opacity: 0.05;
-  }
+	&::before {
+		content: '';
+		height: 100vh;
+		width: 100%;
+		display: flex;
+		position: fixed;
+		background-image: url('assets/img/logo/square-opaque.svg');
+		background-repeat: no-repeat;
+		background-color: #fbfbfb;
+		background-size: 40%;
+		background-position: center;
+		opacity: 0.02;
+	}
 }
 
 .no--padding {
-  padding: 0 !important;
+	padding: 0 !important;
 }
 
 .no--margin {
-  margin: 0 !important;
+	margin: 0 !important;
 }
 
 .cursor--pointer {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .w-100 {
-  width: 100%;
+	width: 100%;
 }
 
 ::selection {
-  color: #333;
-  background: #ffec59;
+	color: #333;
+	background: #ffec59;
 }
 
 .margin {
-  &-top {
-    &-xl {
-      margin-top: 5rem !important;
-    }
+	&-top {
+		&-xl {
+			margin-top: 5rem !important;
+		}
 
-    &-lg {
-      margin-top: 3rem !important;
-    }
+		&-lg {
+			margin-top: 3rem !important;
+		}
 
-    &-md {
-      margin-top: 2rem !important;
-    }
+		&-md {
+			margin-top: 2rem !important;
+		}
 
-    &-sm {
-      margin-top: 1rem !important;
-    }
+		&-sm {
+			margin-top: 1rem !important;
+		}
 
-    &-zero {
-      margin-top: 0 !important;
-    }
-  }
+		&-zero {
+			margin-top: 0 !important;
+		}
+	}
 
-  &-bottom {
-    &-xl {
-      margin-bottom: 5rem !important;
-    }
+	&-bottom {
+		&-xl {
+			margin-bottom: 5rem !important;
+		}
 
-    &-lg {
-      margin-bottom: 3rem !important;
-    }
+		&-lg {
+			margin-bottom: 3rem !important;
+		}
 
-    &-md {
-      margin-bottom: 2rem !important;
-    }
+		&-md {
+			margin-bottom: 2rem !important;
+		}
 
-    &-sm {
-      margin-bottom: 1rem !important;
-    }
+		&-sm {
+			margin-bottom: 1rem !important;
+		}
 
-    &-zero {
-      margin-bottom: 0 !important;
-    }
-  }
+		&-zero {
+			margin-bottom: 0 !important;
+		}
+	}
 
-  &-left {
-    &-xl {
-      margin-left: 5rem !important;
-    }
+	&-left {
+		&-xl {
+			margin-left: 5rem !important;
+		}
 
-    &-lg {
-      margin-left: 3rem !important;
-    }
+		&-lg {
+			margin-left: 3rem !important;
+		}
 
-    &-md {
-      margin-left: 2rem !important;
-    }
+		&-md {
+			margin-left: 2rem !important;
+		}
 
-    &-sm {
-      margin-left: 1rem !important;
-    }
+		&-sm {
+			margin-left: 1rem !important;
+		}
 
-    &-zero {
-      margin-left: 0 !important;
-    }
-  }
+		&-zero {
+			margin-left: 0 !important;
+		}
+	}
 
-  &-right {
-    &-xl {
-      margin-right: 5rem !important;
-    }
+	&-right {
+		&-xl {
+			margin-right: 5rem !important;
+		}
 
-    &-lg {
-      margin-right: 3rem !important;
-    }
+		&-lg {
+			margin-right: 3rem !important;
+		}
 
-    &-md {
-      margin-right: 2rem !important;
-    }
+		&-md {
+			margin-right: 2rem !important;
+		}
 
-    &-sm {
-      margin-right: 1rem !important;
-    }
+		&-sm {
+			margin-right: 1rem !important;
+		}
 
-    &-zero {
-      margin-right: 0 !important;
-    }
-  }
+		&-zero {
+			margin-right: 0 !important;
+		}
+	}
 }
 
 .position-relative {
-  position: relative !important;
+	position: relative !important;
 }
 
 .icon {
-  width: 3em;
-  height: 3em;
+	width: 3em;
+	height: 3em;
 }
 
 .custom-title {
-  position: relative;
+	position: relative;
 
-  &:hover {
-    &::after {
-      display: initial;
-    }
-  }
+	&:hover {
+		&::after {
+			display: initial;
+		}
+	}
 
-  &::after {
-    display: none;
-    content: attr(aria-label);
-    position: absolute;
-    margin-top: 2px;
-    top: -10%;
-    right: 22%;
-    z-index: 1;
-    padding: 0.2rem 0.7rem;
-    background: #222;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35);
-    color: #fcec59;
-    font-size: 10px;
-    white-space: nowrap;
-    pointer-events: none;
-    transform: translateX(50%);
-  }
+	&::after {
+		display: none;
+		content: attr(aria-label);
+		position: absolute;
+		margin-top: 2px;
+		top: -10%;
+		right: 22%;
+		z-index: 1;
+		padding: 0.2rem 0.7rem;
+		background: #222;
+		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35);
+		color: #fcec59;
+		font-size: 10px;
+		white-space: nowrap;
+		pointer-events: none;
+		transform: translateX(50%);
+	}
 
-  &.top::after {
-    top: -100%;
-    right: 50%;
-  }
+	&.top::after {
+		top: -100%;
+		right: 50%;
+	}
 }
