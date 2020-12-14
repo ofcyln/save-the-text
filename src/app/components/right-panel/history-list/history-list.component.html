@@ -1,6 +1,6 @@
 <h2 class="title">History</h2>
 
 <section>
-  <app-history *ngFor="let savedText of (savedTexts$ | async)"
+  <app-history *ngFor="let savedText of savedTexts"
                [textContent]="savedText.savedText"></app-history>
 </section>

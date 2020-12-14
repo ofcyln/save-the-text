@@ -83,7 +83,24 @@ export class SaveTheTextState {
       },
     } as LastSavedText);
 
-    this.addUniqueNewText(getState().lastSavedText, getState().savedTexts, textToSave);
+    const lastSavedText = getState().lastSavedText;
+    const savedTexts = filterDuplicates(getState().savedTexts);
+
+    if (savedTexts.length === 0 && lastSavedText.savedText) {
+      savedTexts.push(lastSavedText);
+      filterDuplicates(savedTexts);
+      this.setStringifyData(savedTexts);
+      patchState({ savedTexts });
+    } else {
+      for (const text of savedTexts) {
+        if (savedTexts[savedTexts.length - 1].savedText !== textToSave && text.savedText !== textToSave) {
+          savedTexts.push(lastSavedText);
+          filterDuplicates(savedTexts);
+          this.setStringifyData(savedTexts);
+          patchState({ savedTexts });
+        }
+      }
+    }
   }
 
   @Action(SetTextAreaValue)
@@ -123,25 +140,6 @@ export class SaveTheTextState {
       patchState({ darkMode: false });
 
       StorageService.setItem('darkMode', getState().darkMode.toString());
-    }
-  }
-
-  addUniqueNewText(lastSavedTextState: SavedText, savedTextsState: SavedText[], textToSave: string): void {
-    const lastSavedText = lastSavedTextState;
-    const savedTexts = filterDuplicates(savedTextsState);
-
-    if (savedTexts.length === 0 && !!lastSavedText.savedText) {
-      savedTexts.push(lastSavedText);
-      filterDuplicates(savedTexts);
-      this.setStringifyData(savedTexts);
-    } else {
-      for (const text of savedTexts) {
-        if (savedTexts[savedTexts.length - 1].savedText !== textToSave && text.savedText !== textToSave) {
-          savedTexts.push(lastSavedText);
-          filterDuplicates(savedTexts);
-          this.setStringifyData(savedTexts);
-        }
-      }
     }
   }
 
