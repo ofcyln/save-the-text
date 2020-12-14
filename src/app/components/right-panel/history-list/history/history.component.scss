@@ -4,12 +4,12 @@
 	display: grid;
 	height: auto;
 	padding: 0.5rem;
-	margin: 1rem;
+	margin: 1.5rem 1rem;
 	position: relative;
 	box-sizing: border-box;
 	width: calc(100% - 2rem);
 	transition: 0.3s ease-in-out box-shadow;
-	grid-template-columns: repeat(1, 202px);
+	grid-template-columns: repeat(1, 252px);
 	grid-template-rows: 25px auto 30px;
 
 	&.shadow {
