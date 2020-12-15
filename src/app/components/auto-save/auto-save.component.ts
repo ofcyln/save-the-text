@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { SaveText } from '../../store/action/save-the-text.actions';
+import { PulseTriggered, SaveText } from '../../store/action/save-the-text.actions';
 import { SaveTheTextState } from '../../store/state/save-the-text.state';
 import { Observable, timer } from 'rxjs';
 import { StorageService } from '../../shared/service/storage.service';
@@ -12,6 +12,8 @@ import { StorageService } from '../../shared/service/storage.service';
 })
 export class AutoSaveComponent implements OnInit {
   @Select(SaveTheTextState.getTextAreaValue) textAreaValue$: Observable<string>;
+  @Select(SaveTheTextState.getPulseState) pulse$: Observable<boolean>;
+
   textAreaValue: string;
   private readonly TEN_SECONDS = 1e4;
 
@@ -28,6 +30,7 @@ export class AutoSaveComponent implements OnInit {
   save(): void {
     this.store.dispatch(new SaveText(this.textAreaValue));
     StorageService.setItem('lastSavedText', this.textAreaValue);
+    this.store.dispatch(new PulseTriggered());
   }
 
   savePeriodically(): void {

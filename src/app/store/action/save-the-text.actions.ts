@@ -33,3 +33,9 @@ export class DarkModeButtonClick {
 
   constructor() {}
 }
+
+export class PulseTriggered {
+  static readonly type = '[SaveTheText] Pulse Triggered';
+
+  constructor() {}
+}

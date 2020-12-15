@@ -8,6 +8,6 @@
           (click)="save()">
     <em class="icon icon-floppy-disk"></em>
 
-    <i>Click to save manually</i>
+    <i [ngClass]="{'pulse': (pulse$ | async)}">Click to save manually</i>
   </button>
 </section>
