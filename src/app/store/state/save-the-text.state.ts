@@ -2,6 +2,7 @@ import { Action, Selector, State, StateContext } from '@ngxs/store';
 import {
   DarkModeButtonClick,
   GetLastSavedText,
+  PulseTriggered,
   RemoveText,
   RightPanelOpenerClick,
   SaveText,
@@ -28,6 +29,7 @@ export interface SaveTheTextStateModel {
   textAreaValue: string;
   rightPanel: boolean;
   darkMode: boolean;
+  pulse: boolean;
 }
 
 @State<SaveTheTextStateModel>({
@@ -42,6 +44,7 @@ export interface SaveTheTextStateModel {
     textAreaValue: StorageService.getItem('lastSavedText'),
     rightPanel: false,
     darkMode: StorageService.getItem('darkMode') === 'true' || false,
+    pulse: false,
   },
 })
 @Injectable()
@@ -69,6 +72,11 @@ export class SaveTheTextState {
   @Selector()
   static getDarkModeValue(state: SaveTheTextStateModel): boolean {
     return state.darkMode;
+  }
+
+  @Selector()
+  static getPulseState(state: SaveTheTextStateModel): boolean {
+    return state.pulse;
   }
 
   @Action(SaveText)
@@ -141,6 +149,17 @@ export class SaveTheTextState {
 
       StorageService.setItem('darkMode', getState().darkMode.toString());
     }
+  }
+
+  @Action(PulseTriggered)
+  pulseTriggered({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
+    patchState({ pulse: true });
+
+    const pulsing = () => {
+      patchState({ pulse: !getState().pulse });
+    };
+
+    setTimeout(pulsing, 2e2);
   }
 
   setStringifyData(savedTexts: SavedText[]): void {

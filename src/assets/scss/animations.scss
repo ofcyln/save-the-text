@@ -1,0 +1,22 @@
+.pulse {
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		color: #ffec59;
+		text-shadow: 0 0 0 #333;
+		transform: scale(0.95);
+	}
+
+	70% {
+		transform: scale(2);
+		text-shadow: 1px 1px 1px #333;
+	}
+
+	100% {
+		color: #333;
+		text-shadow: 1px 1px 1px #333;
+		transform: scale(0.95);
+	}
+}

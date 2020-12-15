@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { SavedText, SaveTheTextState } from '../../store/state/save-the-text.state';
 import { Observable } from 'rxjs';
-import { SaveText, SetTextAreaValue } from '../../store/action/save-the-text.actions';
+import { PulseTriggered, SaveText, SetTextAreaValue } from '../../store/action/save-the-text.actions';
 
 @Component({
   selector: 'app-text-area',
@@ -36,6 +36,7 @@ export class TextAreaComponent implements OnInit {
   getSaveKeyCombination(event: KeyboardEvent) {
     if (event.ctrlKey && event.key === 's') {
       this.store.dispatch(new SaveText(this.lastSavedText));
+      this.store.dispatch(new PulseTriggered());
     }
   }
 }
