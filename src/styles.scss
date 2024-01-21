@@ -7,20 +7,6 @@ body {
 	height: 100%;
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
-
-	&::before {
-		content: '';
-		height: 100vh;
-		width: 100%;
-		display: flex;
-		position: fixed;
-		background-image: url('assets/img/logo/square-opaque.svg');
-		background-repeat: no-repeat;
-		background-color: #fbfbfb;
-		background-size: 40%;
-		background-position: center;
-		opacity: 0.02;
-	}
 }
 
 .no--padding {
