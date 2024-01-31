@@ -1,13 +1,18 @@
+:host {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
 .card {
 	background: #ffec59;
 	border-radius: 2px;
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	height: auto;
 	padding: 0.5rem;
-	margin: 1.5rem 1rem;
 	position: relative;
 	box-sizing: border-box;
-	width: calc(100% - 2rem);
+	width: 100%;
 	transition: 0.3s ease-in-out box-shadow;
 	grid-template-columns: repeat(1, 252px);
 	grid-template-rows: 25px auto 30px;
@@ -26,11 +31,18 @@
 	}
 
 	.content {
-		margin: 0 0 1rem;
+		margin: 0.5rem 0 1rem;
 		word-break: break-all;
 		max-height: 148px;
 		overflow: auto;
 		cursor: pointer;
+	}
+
+	.timestamp-element {
+		margin: 0;
+		font-size: 0.8rem;
+		color: #222;
+		opacity: 0.5;
 	}
 
 	.button-outlined {

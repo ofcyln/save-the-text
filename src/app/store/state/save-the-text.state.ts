@@ -87,6 +87,7 @@ export class SaveTheTextState {
 
     patchState({
       lastSavedText: {
+        timestamp: new Date(),
         savedText: textToSave,
       },
     } as LastSavedText);
@@ -101,8 +102,8 @@ export class SaveTheTextState {
       patchState({ savedTexts });
     } else {
       for (const text of savedTexts) {
-        if (savedTexts[savedTexts.length - 1].savedText !== textToSave && text.savedText !== textToSave) {
-          savedTexts.push(lastSavedText);
+        if (savedTexts[0].savedText !== textToSave && text.savedText !== textToSave) {
+          savedTexts.unshift(lastSavedText);
           filterDuplicates(savedTexts);
           this.setStringifyData(savedTexts);
           patchState({ savedTexts });

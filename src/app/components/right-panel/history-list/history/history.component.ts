@@ -9,6 +9,7 @@ import { RemoveText, SaveText } from '../../../../store/action/save-the-text.act
 })
 export class HistoryComponent {
   @Input('textContent') textContent: string; // tslint:disable-line: no-input-rename
+  @Input('timestamp') timestamp: Date; // tslint:disable-line: no-input-rename
 
   constructor(private store: Store) {}
 

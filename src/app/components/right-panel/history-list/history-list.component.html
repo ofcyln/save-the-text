@@ -1,6 +1,5 @@
 <h2 class="title">History</h2>
 
 <section>
-  <app-history *ngFor="let savedText of savedTexts"
-               [textContent]="savedText.savedText"></app-history>
+  <app-history *ngFor="let savedText of savedTexts" [textContent]="savedText.savedText" [timestamp]="savedText.timestamp"></app-history>
 </section>

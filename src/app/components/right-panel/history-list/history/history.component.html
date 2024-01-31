@@ -5,9 +5,13 @@
 
   <p class="content" (click)="setSelectedText(textContent)" [innerHTML]="textContent"></p>
 
-  <button class="button-outlined" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.5rem" (click)="removeText(textContent)">
-    <img class="remove" alt="remove" src="assets/img/svg/delete.svg?v1.0.1" />
+  <section fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="0.5rem">
+    <p class="timestamp-element" [innerHTML]="timestamp | date: 'dd-MM-yyyy / hh:mm:ss'"></p>
 
-    <strong>REMOVE</strong>
-  </button>
+    <button class="button-outlined" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.5rem" (click)="removeText(textContent)">
+      <img class="remove" alt="remove" src="assets/img/svg/delete.svg?v1.0.1" />
+
+      <strong>REMOVE</strong>
+    </button>
+  </section>
 </article>

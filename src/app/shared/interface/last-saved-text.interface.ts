@@ -1,6 +1,6 @@
 export interface LastSavedTextItem {
   savedText: string;
-  uuid: number;
+  timestamp: Date;
 }
 
 export interface LastSavedText {
