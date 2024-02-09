@@ -86,6 +86,6 @@
     "stylelint-config-standard": "latest",
     "ts-node": "latest",
     "tslint": "latest",
-    "typescript": "~4.6.4"
+    "typescript": "4.8.3"
   }
 }
