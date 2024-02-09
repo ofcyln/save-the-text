@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "1.0.0",
+    "version": "2.00",
     "changelog": "PWA configurations and asset integrations of Save the Text app."
   },
   "assetGroups": [
@@ -10,7 +10,7 @@
       "name": "app",
       "installMode": "prefetch",
       "resources": {
-        "files": ["/favicon.ico?v=1.0.1", "/index.html", "/manifest.webmanifest", "/*.css", "/*.js"]
+        "files": ["/favicon.ico?v=1.0.2", "/index.html", "/manifest.webmanifest", "/*.css", "/*.js"]
       }
     },
     {
