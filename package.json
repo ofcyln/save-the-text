@@ -53,9 +53,9 @@
     "@ngxs/devtools-plugin": "latest",
     "@ngxs/logger-plugin": "latest",
     "@ngxs/store": "latest",
-    "rxjs": "~6.6.0",
-    "rxjs-tslint": "^0.1.8",
-    "tslib": "^2.0.0",
+    "rxjs": "latest",
+    "rxjs-tslint": "latest",
+    "tslib": "latest",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
