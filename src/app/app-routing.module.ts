@@ -7,7 +7,7 @@ import { TextAreaComponent } from './components/text-area/text-area.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/',
+    redirectTo: '',
     pathMatch: 'full',
   },
   { path: '', component: TextAreaComponent },

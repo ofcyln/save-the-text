@@ -1,10 +1,10 @@
 <main
-      class="flex flex-col h-full w-full text-3xl font-bold underline"
+      class="flex flex-col h-full w-full"
       [ngStyle]="{'overflow': 'hidden', 'height': '100%'}"
       [ngClass]="(darkMode$ | async) ? 'dark-mode-on' : 'dark-mode-off'">
   <section
            data-router-container
-           class="w-full relative">
+           class="w-full h-full relative">
     <router-outlet></router-outlet>
 
     <app-auto-save></app-auto-save>
