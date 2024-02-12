@@ -1,10 +1,10 @@
+@import url('tailwindcss/base');
+@import url('tailwindcss/components');
+@import url('tailwindcss/utilities');
 @import url('assets/scss/mixins.scss');
 @import url('assets/scss/media-queries.scss');
 @import url('assets/scss/animations.scss');
 @import url('assets/scss/dark-mode.scss');
-@import url('tailwindcss/base');
-@import url('tailwindcss/components');
-@import url('tailwindcss/utilities');
 
 body {
   margin: 0;
