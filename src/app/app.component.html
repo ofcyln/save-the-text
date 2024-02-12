@@ -1,11 +1,10 @@
-<main fxFill
-      fxLayout="column"
-      fxLayoutAlign="start center"
+<main
+      class="flex flex-col h-full w-full text-3xl font-bold underline"
       [ngStyle]="{'overflow': 'hidden', 'height': '100%'}"
       [ngClass]="(darkMode$ | async) ? 'dark-mode-on' : 'dark-mode-off'">
-  <section fxFill
+  <section
            data-router-container
-           class="w-100 position-relative">
+           class="w-full relative">
     <router-outlet></router-outlet>
 
     <app-auto-save></app-auto-save>
