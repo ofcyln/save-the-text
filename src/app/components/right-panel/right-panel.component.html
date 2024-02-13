@@ -1,11 +1,9 @@
 <app-history-list></app-history-list>
 
-<section class="footer"
-         fxLayout="row"
-         fxLayoutAlign="center center">
-  <app-dark-mode-configurator fxFlex></app-dark-mode-configurator>
+<section class="footer flex flex-row justify-center items-center">
+  <app-dark-mode-configurator class="flex"></app-dark-mode-configurator>
 
-  <app-share fxFlex *ngIf="share"></app-share>
+  <app-share class="flex" *ngIf="share"></app-share>
 </section>
 
 <app-right-panel-opener></app-right-panel-opener>

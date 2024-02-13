@@ -1,8 +1,5 @@
-<article fxLayout="column"
-         fxLayoutAlign="start center"
-         class="p-0 not-found-area">
-  <div class="not-found-content">
-    <div >
+<article class="not-found-area flex flex-col w-screen h-screen items-center p-[0]">
+  <section class="not-found-content text-yellow-500">
       <h1>404</h1>
 
       <h2>Oops, the page you're looking for does not exist.</h2>
@@ -11,9 +8,8 @@
         You may want to head back to the homepage.
       </p>
 
-      <button mat-flat-button
-              color="primary"
+      <button color="primary"
+              class="bg-neutral-600 hover:bg-neutral-700 text-yellow-500 py-2 px-4"
               routerLink="/">Redirect to homepage</button>
-    </div>
-  </div>
+  </section>
 </article>

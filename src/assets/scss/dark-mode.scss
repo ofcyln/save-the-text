@@ -1,30 +1,25 @@
 .dark-mode-on {
-	background-color: #333;
+  background-color: #333;
 
-	[data-text-area] {
-		color: #fff;
-	}
+  [data-text-area] {
+    color: #fff;
+  }
 
-	app-right-panel {
-		border-left-color: #292929;
-		background-color: #3f3f3f;
-	}
+  app-right-panel {
+    border-left-color: #292929;
+    background-color: #3f3f3f;
+  }
 
-	.title {
-		color: #fff;
-		border-bottom-color: #292929 !important;
-	}
+  .title {
+    color: #fff;
+    border-bottom-color: #292929 !important;
+  }
 
-	app-share {
-		border-left-color: #292929;
-	}
+  app-share {
+    border-left-color: #292929;
+  }
 
-	app-history-list {
-		border-bottom-color: #292929;
-	}
-
-	.icon-arrow-back,
-	.save-button {
-		filter: invert(1);
-	}
+  app-history-list {
+    border-bottom-color: #292929;
+  }
 }

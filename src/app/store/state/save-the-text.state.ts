@@ -142,14 +142,9 @@ export class SaveTheTextState {
 
   @Action(DarkModeButtonClick)
   darkModeButtonClick({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
-    if (!getState().darkMode) {
-      patchState({ darkMode: true });
-      StorageService.setItem('darkMode', getState().darkMode.toString());
-    } else {
-      patchState({ darkMode: false });
-
-      StorageService.setItem('darkMode', getState().darkMode.toString());
-    }
+    const darkMode = !getState().darkMode;
+    patchState({ darkMode });
+    StorageService.setItem('darkMode', darkMode.toString());
   }
 
   @Action(PulseTriggered)

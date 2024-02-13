@@ -1,14 +1,14 @@
-<article class="card shadow custom-title" aria-label="Load this note">
-  <h3 class="heading" (click)="setSelectedText(textContent)">
+<article class="card shadow custom-title flex flex-col relative p-2 box-border w-full h-auto rounded-[0.125rem]" aria-label="Load this note">
+  <h3 class="m-0 cursor-pointer font-bold" (click)="setSelectedText(textContent)">
     {{ textContent.length > 20 ? textContent.substring(0, 20) + '...' : textContent }}
   </h3>
 
-  <p class="content" (click)="setSelectedText(textContent)" [innerHTML]="textContent"></p>
+  <p class="content overflow-auto cursor-pointer" (click)="setSelectedText(textContent)" [innerHTML]="textContent"></p>
 
-  <section fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="0.5rem">
-    <p class="timestamp-element" [innerHTML]="timestamp | date: 'dd-MM-yyyy / hh:mm:ss'"></p>
+  <section class="flex flex-row items-end gap-2">
+    <p class="timestamp-element m-0 text-xs" [innerHTML]="timestamp | date: 'dd-MM-yyyy / hh:mm:ss'"></p>
 
-    <button class="button-outlined" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="0.5rem" (click)="removeText(textContent)">
+    <button class="button-outlined flex flex-row items-center gap-2 p-1 relative box-border text-sm uppercase overflow-hidden outline-none cursor-pointer" (click)="removeText(textContent)">
       <img class="remove" alt="remove" src="assets/img/svg/delete.svg?v1.0.1" />
 
       <strong>REMOVE</strong>

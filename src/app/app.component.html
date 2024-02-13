@@ -7,7 +7,7 @@
            class="w-full h-full relative">
     <router-outlet></router-outlet>
 
-    <app-auto-save></app-auto-save>
+    <app-auto-save class="absolute"></app-auto-save>
 
     <app-right-panel [ngClass]="(rightPanel$ | async) ? 'active' : ''"></app-right-panel>
   </section>
