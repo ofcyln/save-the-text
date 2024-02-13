@@ -1,40 +1,38 @@
 :host {
-	transition: ease-in-out opacity 0.3s;
-	position: absolute;
-	bottom: 20px;
-	left: 20px;
-	min-width: 300px;
-	opacity: 0.4;
+  transition: ease-in-out opacity 0.3s;
+  bottom: 20px;
+  left: 20px;
+  min-width: 300px;
+  opacity: 0.4;
 
-	.save-button {
-		background-color: transparent;
-		border: 0;
-		cursor: pointer;
-		transition: ease-in-out filter 0.3s;
+  .save-button {
+    background-color: transparent;
+    border: 0;
+    transition: ease-in-out filter 0.3s;
 
-		.icon-floppy-disk {
-			background-image: url('/assets/img/svg/floppy-disk.svg?v1.0.1');
-			background-size: cover;
-		}
+    .icon-floppy-disk {
+      background-image: url('/assets/img/svg/floppy-disk.svg?v1.0.1');
+      background-size: cover;
+    }
 
-		i {
-			transition: ease-in-out opacity 0.3s;
-			margin-left: 0.5rem;
-			opacity: 0;
-		}
+    i {
+      transition: ease-in-out opacity 0.3s;
+      margin-left: 0.5rem;
+      opacity: 0;
+    }
 
-		&:focus {
-			outline: 0;
-		}
-	}
+    &:focus {
+      outline: 0;
+    }
+  }
 
-	&:hover {
-		opacity: 1;
+  &:hover {
+    opacity: 1;
 
-		button {
-			i {
-				opacity: 1;
-			}
-		}
-	}
+    button {
+      i {
+        opacity: 1;
+      }
+    }
+  }
 }

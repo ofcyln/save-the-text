@@ -1,163 +1,59 @@
-@import 'assets/scss/mixins.scss';
-@import 'assets/scss/media-queries.scss';
-@import 'assets/scss/animations.scss';
-@import 'assets/scss/dark-mode.scss';
+@import url('tailwindcss/base');
+@import url('tailwindcss/components');
+@import url('tailwindcss/utilities');
+@import url('assets/scss/mixins.scss');
+@import url('assets/scss/media-queries.scss');
+@import url('assets/scss/animations.scss');
+@import url('assets/scss/dark-mode.scss');
 
 body {
-	height: 100%;
-	margin: 0;
-	font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
+  margin: 0;
+  font-family: Helvetica, Roboto, Arial, sans-serif;
+  height: 100vh;
 
-.no--padding {
-	padding: 0 !important;
-}
-
-.no--margin {
-	margin: 0 !important;
-}
-
-.cursor--pointer {
-	cursor: pointer;
-}
-
-.w-100 {
-	width: 100%;
+  @supports (-webkit-touch-callout: none) {
+    height: 100dvh;
+  }
 }
 
 ::selection {
-	color: #333;
-	background: #ffec59;
-}
-
-.margin {
-	&-top {
-		&-xl {
-			margin-top: 5rem !important;
-		}
-
-		&-lg {
-			margin-top: 3rem !important;
-		}
-
-		&-md {
-			margin-top: 2rem !important;
-		}
-
-		&-sm {
-			margin-top: 1rem !important;
-		}
-
-		&-zero {
-			margin-top: 0 !important;
-		}
-	}
-
-	&-bottom {
-		&-xl {
-			margin-bottom: 5rem !important;
-		}
-
-		&-lg {
-			margin-bottom: 3rem !important;
-		}
-
-		&-md {
-			margin-bottom: 2rem !important;
-		}
-
-		&-sm {
-			margin-bottom: 1rem !important;
-		}
-
-		&-zero {
-			margin-bottom: 0 !important;
-		}
-	}
-
-	&-left {
-		&-xl {
-			margin-left: 5rem !important;
-		}
-
-		&-lg {
-			margin-left: 3rem !important;
-		}
-
-		&-md {
-			margin-left: 2rem !important;
-		}
-
-		&-sm {
-			margin-left: 1rem !important;
-		}
-
-		&-zero {
-			margin-left: 0 !important;
-		}
-	}
-
-	&-right {
-		&-xl {
-			margin-right: 5rem !important;
-		}
-
-		&-lg {
-			margin-right: 3rem !important;
-		}
-
-		&-md {
-			margin-right: 2rem !important;
-		}
-
-		&-sm {
-			margin-right: 1rem !important;
-		}
-
-		&-zero {
-			margin-right: 0 !important;
-		}
-	}
-}
-
-.position-relative {
-	position: relative !important;
+  color: #333;
+  background: #ffec59;
 }
 
 .icon {
-	width: 3em;
-	height: 3em;
+  width: 2em;
+  height: 2em;
 }
 
 .custom-title {
-	position: relative;
+  position: relative;
 
-	&:hover {
-		&::after {
-			display: initial;
-		}
-	}
+  &:hover {
+    &::after {
+      display: initial;
+    }
+  }
 
-	&::after {
-		display: none;
-		content: attr(aria-label);
-		position: absolute;
-		margin-top: 0.25rem;
-		top: -10%;
-		right: 22%;
-		z-index: 1;
-		padding: 0.2rem 0.7rem;
-		background: #222;
-		box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35);
-		color: #fcec59;
-		font-size: 10px;
-		white-space: nowrap;
-		pointer-events: none;
-		transform: translateX(50%);
-	}
+  &::after {
+    display: none;
+    content: attr(aria-label);
+    position: absolute;
+    top: -10px;
+    right: 50px;
+    z-index: 1;
+    padding: 0.2rem 0.7rem;
+    background: #222;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 35%);
+    color: #fcec59;
+    font-size: 10px;
+    white-space: nowrap;
+    pointer-events: none;
+    transform: translateX(50%);
+  }
 
-	&.top::after {
-		top: -100%;
-		right: 50%;
-	}
+  &.top::after {
+    top: -100%;
+    right: 50%;
+  }
 }

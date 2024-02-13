@@ -12,11 +12,6 @@ import { Injectable } from '@angular/core';
 import { LastSavedText } from '../../shared/interface/last-saved-text.interface';
 import { StorageService } from '../../shared/service/storage.service';
 
-const filterDuplicates = (arr: SavedText[]): SavedText[] => {
-  arr = [...new Set(arr)];
-  return arr;
-};
-
 export interface SavedText {
   savedText: string;
 }
@@ -31,6 +26,11 @@ export interface SaveTheTextStateModel {
   darkMode: boolean;
   pulse: boolean;
 }
+
+const filterDuplicates = (arr: SavedText[]): SavedText[] => {
+  arr = [...new Set(arr)];
+  return arr;
+};
 
 @State<SaveTheTextStateModel>({
   name: 'SaveTheText',
@@ -142,14 +142,9 @@ export class SaveTheTextState {
 
   @Action(DarkModeButtonClick)
   darkModeButtonClick({ getState, patchState }: StateContext<SaveTheTextStateModel>): void {
-    if (!getState().darkMode) {
-      patchState({ darkMode: true });
-      StorageService.setItem('darkMode', getState().darkMode.toString());
-    } else {
-      patchState({ darkMode: false });
-
-      StorageService.setItem('darkMode', getState().darkMode.toString());
-    }
+    const darkMode = !getState().darkMode;
+    patchState({ darkMode });
+    StorageService.setItem('darkMode', darkMode.toString());
   }
 
   @Action(PulseTriggered)

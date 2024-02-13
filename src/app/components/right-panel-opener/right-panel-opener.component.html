@@ -1,7 +1,4 @@
-<button fxFlexFill
-        fxLayout="row"
-        fxLayoutAlign="end center"
-        class="right-panel-opener"
+<button class="right-panel-opener flex flex-row items-end"
         [ngClass]="(rightPanel$ | async) ? 'open' : 'close'"
         (click)="open()">
   <em class="icon-arrow-back"></em>

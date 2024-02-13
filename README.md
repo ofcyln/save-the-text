@@ -25,7 +25,7 @@ I've created a wireframe to see the overall view of the application before devel
 
 * Angular 10+ version
 * PWA - Progressive Web Apps
-* Angular fxLayout
+* Tailwind CSS
 * UX research and collecting remarks of users to shape UI
 * Responsive design integration
 * HTML5 semantic structure

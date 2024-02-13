@@ -7,7 +7,7 @@ import { TextAreaComponent } from './components/text-area/text-area.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/',
+    redirectTo: '',
     pathMatch: 'full',
   },
   { path: '', component: TextAreaComponent },
@@ -16,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,10 +1,12 @@
 <input type="checkbox"
        class="toggle-input"
-       id="switch">
+       id="switch"
+       [checked]="darkMode">
 
 <label for="switch"
-       class="toggle-label custom-title top"
+       class="toggle-label custom-title top absolute p-0 rounded-[1.25rem] cursor-pointer"
        aria-label="Dark mode"
-       (click)="switchToDarkMode()">
+       (click)="switchToDarkMode()"
+>
   <em class="switcher" id="on"></em>
 </label>
